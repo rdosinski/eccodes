@@ -73,7 +73,7 @@
 170 170 Ocean level defined by water potential temperature difference from near-surface to level (K)
 171 171 Ocean level defined by vertical eddy diffusivity difference from near-surface to level (m2 s-1)
 # 172-172 Reserved
-173 173 Top of snow over sea ice
+173 173 top of snow over sea ice on sea, lake or river
 174 sfc Top surface of ice on sea, lake or river
 175 175 Top surface of ice, under snow cover, on sea, lake or river
 176 176 Bottom surface (underside) ice on sea, lake or river
