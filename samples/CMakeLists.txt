@@ -1,9 +1,47 @@
 file( GLOB samples_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.tmpl" )
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
 if(HAVE_INSTALL_ECCODES_SAMPLES)
     install( FILES ${samples_files}
              DESTINATION ${ECCODES_SAMPLES_SUFF}
              PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ )
+    # set to the newest GRIB2 tablesVersion
+    if(NOT HAVE_MEMFS)
+      set(TABLE_VERSION_REGEX "constant tablesVersionLatest = ([0-9][0-9])")
+      file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/../definitions/grib2/boot.def" TABLE_VERSION_STRING REGEX ${TABLE_VERSION_REGEX})
+      string(REGEX MATCH ${TABLE_VERSION_REGEX} "\\1" TABLE_VERSION_STRING "${TABLE_VERSION_STRING}")
+      string(REGEX REPLACE "constant tablesVersionLatest = " "" TABLE_VERSION_STRING "${CMAKE_MATCH_0}")
+      set(GRB2TABVERS ${TABLE_VERSION_STRING})
+      add_custom_target(set_grib2_latest_tables_version)
+      add_custom_command(TARGET set_grib2_latest_tables_version
+                         POST_BUILD
+                         COMMAND bash -c "set -x; cd ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}; for F in GRIB2.tmpl *_grib2.tmpl ; do grib_set -s tablesVersion=${GRB2TABVERS} $F tmp; mv tmp $F; done"
+                         VERBATIM
+                         WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}
+      )
+      add_custom_command(TARGET set_grib2_latest_tables_version
+                         POST_BUILD
+                         COMMAND bash -c "cd ${CMAKE_INSTALL_PREFIX}/share/eccodes/ifs_samples/grib1_mlgrib2; for F in *_ml.tmpl ; do grib_set -s tablesVersion=${GRB2TABVERS} $F tmp; mv tmp $F; done"
+                         VERBATIM
+                         WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}
+      )
+      add_custom_command(TARGET set_grib2_latest_tables_version
+                         POST_BUILD
+                         COMMAND bash -c "cd ${CMAKE_INSTALL_PREFIX}/share/eccodes/ifs_samples/grib1_mlgrib2_ieee64; for F in *_ml.tmpl ; do grib_set -s tablesVersion=${GRB2TABVERS} $F tmp; mv tmp $F; done"
+                         VERBATIM
+                         WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}
+      )
+      if(HAVE_AEC)
+        add_custom_command(TARGET set_grib2_latest_tables_version
+                           POST_BUILD
+                           COMMAND bash -c "cd ${CMAKE_INSTALL_PREFIX}/share/eccodes/ifs_samples/grib1_mlgrib2_ccsds; for F in *_ml.tmpl gg_sfc_grib2.tmpl ; do grib_set -s tablesVersion=${GRB2TABVERS} $F tmp; mv tmp $F; done"
+                           VERBATIM
+                           WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}
+        )
+     endif()
+    endif()
+
 endif()
 
 foreach( tmpl ${samples_files} )
