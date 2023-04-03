@@ -16,7 +16,7 @@ if(HAVE_INSTALL_ECCODES_SAMPLES)
       add_custom_target(set_grib2_latest_tables_version)
       add_custom_command(TARGET set_grib2_latest_tables_version
                          POST_BUILD
-                         COMMAND bash -c "set -x; cd ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}; for F in GRIB2.tmpl *_grib2.tmpl ; do grib_set -s tablesVersion=${GRB2TABVERS} $F tmp; mv tmp $F; done"
+                         COMMAND bash -c "cd ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}; for F in GRIB2.tmpl *_grib2.tmpl ; do grib_set -s tablesVersion=${GRB2TABVERS} $F tmp; mv tmp $F; done"
                          VERBATIM
                          WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/${ECCODES_SAMPLES_SUFF}
       )
