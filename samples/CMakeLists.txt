@@ -8,10 +8,10 @@ if(HAVE_INSTALL_ECCODES_SAMPLES)
              PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ )
     # set to the newest GRIB2 tablesVersion
     if(NOT HAVE_MEMFS)
-      set(TABLE_VERSION_REGEX "constant tablesVersionLatest = ([0-9][0-9])")
+      set(TABLE_VERSION_REGEX "constant tablesVersionLatestOfficial = ([0-9][0-9])")
       file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/../definitions/grib2/boot.def" TABLE_VERSION_STRING REGEX ${TABLE_VERSION_REGEX})
       string(REGEX MATCH ${TABLE_VERSION_REGEX} "\\1" TABLE_VERSION_STRING "${TABLE_VERSION_STRING}")
-      string(REGEX REPLACE "constant tablesVersionLatest = " "" TABLE_VERSION_STRING "${CMAKE_MATCH_0}")
+      string(REGEX REPLACE "constant tablesVersionLatestOfficial = " "" TABLE_VERSION_STRING "${CMAKE_MATCH_0}")
       set(GRB2TABVERS ${TABLE_VERSION_STRING})
       add_custom_target(set_grib2_latest_tables_version)
       add_custom_command(TARGET set_grib2_latest_tables_version
