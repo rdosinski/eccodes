@@ -19,6 +19,17 @@ if(levtype is "sfc")
     unalias mars.levelist;
 }
 
+# ECC-1081
+if(typeOfFirstFixedSurface == 109)
+{
+    meta scaleFactorOfFirstFixedSurface2 evaluate(scaleFactorOfFirstFixedSurface - 6) ;
+    meta marsLevelPVtigge from_scale_factor_scaled_value(scaleFactorOfFirstFixedSurface2,scaledValueOfFirstFixedSurface);
+    unalias level;
+    unalias mars.levelist;
+    alias mars.levelist = marsLevelPVtigge;
+    alias level = marsLevelPVtigge;
+}
+
 alias mars.expver = marsExpver;
 alias mars.class  = marsClass;
 alias mars.param = paramId;
