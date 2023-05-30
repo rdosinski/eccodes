@@ -8,6 +8,9 @@ template_nofail default_step_units "grib2/localConcepts/destine/default_step_uni
 # default stepUnits in minutes
 #constant defaultStepUnits = 0 ;
 
+# we don't want to have discipline=192 in Destination Earth
+if ( discipline == 192 ) { meta error not_implemented(); }
+
 alias parameter.paramId=paramId;
 alias parameter.shortName=shortName;
 alias parameter.units=units;
