@@ -1,0 +1,12 @@
+# (C) Copyright 2005- ECMWF.
+
+# Destination Earth (DestinE)
+#if(localUsePresent == 0){
+#constant marsExpver = 'test';
+#} else {
+#constant marsExpver = experimentVersionNumber;
+#}
+if (!defined(marsExpver)) {
+ constant marsExpver = 'test';
+}
+include "grib2/products_destine.def"

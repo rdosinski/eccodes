@@ -19,7 +19,9 @@ if (productionStatusOfProcessedData == 4 ||
     productionStatusOfProcessedData == 8 ||
     productionStatusOfProcessedData == 9 ||
     productionStatusOfProcessedData == 10||
-    productionStatusOfProcessedData == 11)
+    productionStatusOfProcessedData == 11||
+    productionStatusOfProcessedData == 12||
+    productionStatusOfProcessedData == 13)
 {
     alias mars.number=perturbationNumber;
 }

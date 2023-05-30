@@ -1,0 +1,21 @@
+# (C) Copyright 2005- ECMWF.
+
+# Destination Earth
+constant marsClass = 'd1';
+
+template_nofail default_step_units "grib2/localConcepts/destine/default_step_units.def";
+
+# default stepUnits in minutes
+#constant defaultStepUnits = 0 ;
+
+alias parameter.paramId=paramId;
+alias parameter.shortName=shortName;
+alias parameter.units=units;
+alias parameter.name=name;
+
+alias mars.expver = marsExpver;
+alias mars.class  = marsClass;
+alias mars.stream = marsStream;
+alias mars.type   = marsType;
+alias mars.param = paramId;
+alias mars.origin = centre;
