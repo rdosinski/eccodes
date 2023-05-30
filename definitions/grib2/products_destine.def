@@ -19,3 +19,10 @@ alias mars.stream = marsStream;
 alias mars.type   = marsType;
 alias mars.param = paramId;
 alias mars.origin = centre;
+
+if (stepType is "avg" || stepType is "accum") {
+   alias mars.step = stepRange;
+}
+else {
+   alias mars.step = step;
+}

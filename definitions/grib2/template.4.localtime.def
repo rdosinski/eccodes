@@ -4,7 +4,12 @@ remove is_localtime;
 transient is_localtime=1;
 
 alias defaultStepUnits = one; # 1 means Hour. See code table 4.4
-template_nofail default_step_units "grib2/localConcepts/[centre:s]/default_step_units.def";
+if(!productionStatusOfProcessedData == 12 || !productionStatusOfProcessedData == 13) {
+ template_nofail default_step_units "grib2/localConcepts/[centre:s]/default_step_units.def";
+}
+if(productionStatusOfProcessedData == 12 || productionStatusOfProcessedData == 13) {
+ template_nofail default_step_units "grib2/localConcepts/destine/default_step_units.def";
+}
 codetable[1] stepUnits 'stepUnits.table' = defaultStepUnits : transient,dump,no_copy;
 alias time.stepUnits = stepUnits;
 
