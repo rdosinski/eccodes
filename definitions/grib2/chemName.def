@@ -18,11 +18,6 @@
 'Methyl peroxide' = {
 	constituentType = 10002 ;
 	}
-#Volcanic sulfur dioxide
-'Volcanic sulfur dioxide' = {
-	constituentType = 8 ;
-	sourceSinkChemicalPhysicalProcess = 7 ;
-	}
 #Paraffins
 'Paraffins' = {
 	constituentType = 60009 ;
@@ -654,4 +649,8 @@
 #Secondary particulate organic matter dry
 'Secondary particulate organic matter dry' = {
 	constituentType = 62012 ;
+	}
+#Total aerosol
+'Total aerosol' = {
+	constituentType = 62000 ;
 	}

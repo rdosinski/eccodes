@@ -18,3 +18,9 @@ chemId	chemName	name	aerosolType	constituentType	localTablesVersion	sourceSinkCh
 916	aer_antsecorg	Anthropogenic secondary organic aerosol		62033							
 917	strataer	Stratospheric aerosol		65517	1						
 918	SOA	Secondary particulate organic matter dry		62012							
+919	aer_biosecorg_pre	Biogenic secondary organic aerosol precursor		65511	1						
+920	aer_antsecorg_pre	Anthropogenic secondary organic aerosol precursor		65512	1						
+921	aer_so2_pre	SO2 precursor		65510	1						
+922	aer_total	Total aerosol		62000						
+923	aer_sm	Aerosol small mode		65508	1						
+924	aer_lm	Aerosol large mode		65509	1						

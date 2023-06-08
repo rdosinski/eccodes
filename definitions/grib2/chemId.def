@@ -18,11 +18,6 @@
 '7' = {
 	constituentType = 10002 ;
 	}
-#Volcanic sulfur dioxide
-'8' = {
-	constituentType = 8 ;
-	sourceSinkChemicalPhysicalProcess = 7 ;
-	}
 #Paraffins
 '9' = {
 	constituentType = 60009 ;
@@ -654,4 +649,8 @@
 #Secondary particulate organic matter dry
 '918' = {
 	constituentType = 62012 ;
+	}
+#Total aerosol
+'922' = {
+	constituentType = 62000 ;
 	}
