@@ -19,6 +19,9 @@
 'isobaricInPa'                 = {typeOfFirstFixedSurface=100; typeOfSecondFixedSurface=255; pressureUnits='Pa';}
 'isobaricInhPa'                = {typeOfFirstFixedSurface=100; pressureUnits='hPa'; typeOfSecondFixedSurface=255;}
 'isobaricLayer'                = {typeOfFirstFixedSurface=100; typeOfSecondFixedSurface=100;}
+'lowCloudLevel'                = {discipline=0; parameterCategory=6; typeOfFirstFixedSurface=1; typeOfSecondFixedSurface=100;}
+'mediumCloudLevel'             = {discipline=0; parameterCategory=6; typeOfFirstFixedSurface=100; typeOfSecondFixedSurface=100;}
+'highCloudLevel'               = {discipline=0; parameterCategory=6; typeOfFirstFixedSurface=100; typeOfSecondFixedSurface=8;}
 'meanSea'                      = {typeOfFirstFixedSurface=101; typeOfSecondFixedSurface=255;}
 'heightAboveSea'               = {typeOfFirstFixedSurface=102; typeOfSecondFixedSurface=255;}
 'heightAboveSeaLayer'          = {typeOfFirstFixedSurface=102; typeOfSecondFixedSurface=102;}
