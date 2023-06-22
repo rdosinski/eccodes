@@ -1,0 +1,21 @@
+# Code table 4.102 - Statistical processing of reference period
+0 0 Average 
+1 1 Accumulation 
+2 2 Maximum 
+3 3 Minimum 
+4 4 Median 
+# 5-19 Reserved 
+20 20 Model Climate 
+21 21 Standardised drought index with Normal distribution
+22 22 Standardised drought index with Log-Normal distribution
+23 23 Standardised drought index with Generalized Log-Normal distribution
+24 24 Standardised drought index with Logistic distribution
+25 25 Standardised drought index with Log-Logistic distribution
+26 26 Standardised drought index with Generalized Logistic distribution
+27 27 Standardised drought index with Weibull distribution
+28 28 Standardised drought index with Generalized Extreme Value distribution
+29 29 Standardised drought index with Pearson III distribution
+30 30 empirical
+# 31-191 Reserved 
+# 192-254 Reserved for local use 
+255 255 Missing 
