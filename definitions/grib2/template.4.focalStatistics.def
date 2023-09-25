@@ -1,0 +1,28 @@
+codetable[1] spatialVicinityType ('4.103.table',masterDir,localDir)=255 ;
+
+codetable[1] spatialVicinityProcessing ('4.104.table',masterDir,localDir)=255 ;
+
+unsigned[1]  numberOfSpatialVicinityValues = 1 : edition_specific;
+alias nspatvals = numberOfSpatialVicinityValues;
+
+spatialVicintiyList list(numberOfSpatialVicinityValues)
+{
+  # n-th spatial vicinity value
+  unsigned[4] spatialVicinityValue=0 : dump;
+}
+
+#unsigned[4] spatialVicinity1stValue : dump;
+#unsigned[4] spatialVicinity2ndValue : dump;
+
+# UUID of irregular kernel
+byte[16] uuidOfIrregularKernel : dump;
+
+# UUID of weights
+byte[16] uuidOfSpatialVicinityWeights : dump;
+
+codetable[1] temporalVicinityProcessing ('4.104.table',masterDir,localDir)=255 ;
+
+codetable[1] temporalVicinityUnit ('4.4.table',masterDir,localDir)=255 ;
+
+unsigned[4] temporalVicinityTowardsPast : dump;
+unsigned[4] temporalVicinityTowardsFuture : dump;

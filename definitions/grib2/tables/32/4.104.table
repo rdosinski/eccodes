@@ -1,0 +1,13 @@
+# Code table 4.104 - Spatial and temporal vicinity processing
+0 0 Categorical (yes,no)
+1 1 Maximum
+2 2 Minimum
+3 3 Mean
+4 4 Median
+5 5 Sum
+6 6 Percentile
+7 7 Range
+8 8 Standard deviation
+# 9-191 Reserved
+# 192-254 Reserved for local use
+255 255 Missing
