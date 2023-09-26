@@ -2,6 +2,10 @@ codetable[1] spatialVicinityType ('4.103.table',masterDir,localDir)=255 ;
 
 codetable[1] spatialVicinityProcessing ('4.104.table',masterDir,localDir)=255 ;
 
+signed[2] spatialVicintiyProcessingArgument = 255 : dump ;
+
+codetable[1] spatialVicinityMissingData ('4.105.table',masterDir,localDir)=0 ;
+
 unsigned[1]  numberOfSpatialVicinityValues = 1 : edition_specific;
 alias nspatvals = numberOfSpatialVicinityValues;
 
