@@ -3,7 +3,7 @@
 1 1 Rectangle [km,km]
 2 2 Square [km]
 3 3 Wedge [km,degree,degree]
-4 4 Number of grid cells [-]
+4 4 Number of grid cells [-,-]
 5 5 Irregular kernel (see file referred by uuidOfIrregularKernel)
 # 6-191 Reserved
 # 192-254 Reserved for local use
