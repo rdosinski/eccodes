@@ -1,8 +1,8 @@
 # Code table 4.103 - Spatial vicinity type
-0 0 Circle [km] 
-1 1 Rectangle [km,km]
-2 2 Square [km]
-3 3 Wedge [km,degree,degree]
+0 0 Circle [m] 
+1 1 Rectangle [m,m]
+2 2 Square [m]
+3 3 Wedge [m,degree,degree]
 4 4 Number of grid cells [-,-]
 5 5 Irregular kernel (see file referred by uuidOfIrregularKernel)
 # 6-191 Reserved
