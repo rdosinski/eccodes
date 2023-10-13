@@ -4,7 +4,6 @@
 2 2 Square [m]
 3 3 Wedge [m,degree,degree]
 4 4 Number of grid cells [-,-]
-5 5 Irregular kernel (see file referred by uuidOfIrregularKernel)
-# 6-191 Reserved
+# 5-191 Reserved
 # 192-254 Reserved for local use
 255 255 Missing
