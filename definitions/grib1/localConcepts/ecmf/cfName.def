@@ -929,11 +929,6 @@
 	 table2Version = 151 ;
 	 indicatorOfParameter = 138 ;
 	}
-#Sea surface height
-'sea_surface_height_above_geoid' = {
-	 table2Version = 151 ;
-	 indicatorOfParameter = 145 ;
-	}
 #Ocean barotropic stream function
 'ocean_barotropic_streamfunction' = {
 	 table2Version = 151 ;
@@ -948,11 +943,6 @@
 'surface_downward_northward_stress' = {
 	 table2Version = 151 ;
 	 indicatorOfParameter = 154 ;
-	}
-#Depth of 20C isotherm
-'depth_of_isosurface_of_sea_water_potential_temperature' = {
-	 table2Version = 151 ;
-	 indicatorOfParameter = 163 ;
 	}
 #Sea-ice thickness
 'sea_ice_thickness' = {
