@@ -32,6 +32,12 @@ awk '$1 !~ /#/ && $1 < 65000 {print $1}' $latest_codetable_file | while read pdt
     fi
 done
 
+# ECC-1746
+# -------------
+$tools_dir/grib_set -s tablesVersion=31,productDefinitionTemplateNumber=34 $sample2 $temp
+$tools_dir/grib_ls -j -n time $temp > $tempText
+grep -q "stepRange.: 0," $tempText
+grep -q "validityDate.: 20070323," $tempText
 
 # Template 4.86
 # -------------
@@ -173,6 +179,21 @@ test_PDTN_conversions 41 43
 test_PDTN_conversions 57 67
 test_PDTN_conversions 58 68
 test_PDTN_conversions 71 73
+
+# ECC-1779: Deprecated and experimental templates
+# ------------------------------------------------
+grib_check_key_equals $sample2 isTemplateDeprecated,isTemplateExperimental '0 0'
+
+$tools_dir/grib_set -s productDefinitionTemplateNumber=44 $sample2 $temp
+grib_check_key_equals $temp isTemplateDeprecated,isTemplateExperimental '1 0'
+
+$tools_dir/grib_set -s productDefinitionTemplateNumber=10 $sample2 $temp
+grib_check_key_equals $temp isTemplateDeprecated,isTemplateExperimental '0 1'
+
+$tools_dir/grib_set -s gridType=cross_section $sample2 $temp
+grib_check_key_equals $temp isTemplateDeprecated,isTemplateExperimental '0 1'
+$tools_dir/grib_set -s gridType=time_section $sample2 $temp
+grib_check_key_equals $temp isTemplateDeprecated,isTemplateExperimental '0 1'
 
 
 # Clean up

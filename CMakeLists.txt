@@ -73,11 +73,11 @@ endif()
 ###############################################################################
 # some variables/options of this project
 
-if( CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
-    ecbuild_add_cxx_flags("-Wno-write-strings -Wno-deprecated")
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
-    ecbuild_add_cxx_flags("-Wno-write-strings -Wno-deprecated")
-elseif( CMAKE_CXX_COMPILER_ID STREQUAL "Cray" )
+# ecbuild_add_cxx_flags("-Wno-write-strings" NO_FAIL)
+# ecbuild_add_cxx_flags("-Wno-writable-strings" NO_FAIL)
+# ecbuild_add_cxx_flags("-Wno-deprecated" NO_FAIL)
+
+if( CMAKE_CXX_COMPILER_ID STREQUAL "Cray" )
     set(CMAKE_CXX_FLAGS "-hstd=c++11 ${CMAKE_CXX_FLAGS}")
 endif()
 
@@ -142,9 +142,8 @@ ecbuild_add_option( FEATURE AEC
     DEFAULT ON
     CONDITION AEC_FOUND )
 
-ecbuild_find_python( VERSION 2.6 NO_LIBS )
-find_package( NumPy )
-set( HAVE_PYTHON 0 )
+ecbuild_find_python( VERSION 3.6 NO_LIBS )
+# find_package( NumPy )
 
 ## TODO REQUIRED_LANGUAGES Fortran
 ecbuild_add_option( FEATURE FORTRAN
@@ -165,7 +164,7 @@ endif()
 ecbuild_add_option( FEATURE MEMFS
     DESCRIPTION "Memory based access to definitions/samples"
     DEFAULT OFF
-    REQUIRED_PACKAGES PythonInterp )
+    REQUIRED_PACKAGES Python3 )
 
 #if( HAVE_MEMFS AND "${CMAKE_C_COMPILER_ID}" STREQUAL "Cray")
 #  set( HAVE_MEMFS OFF )
@@ -478,10 +477,10 @@ endif()
 
 ###############################################################################
 # Debugging aid. Print all known CMake variables
-# get_cmake_property(_variableNames VARIABLES)
-# foreach( _variableName ${_variableNames} )
+#get_cmake_property(_variableNames VARIABLES)
+#foreach( _variableName ${_variableNames} )
 #   ecbuild_info("  ${_variableName}=${${_variableName}}")
-# endforeach()
+#endforeach()
 ###############################################################################
 # finalize
 

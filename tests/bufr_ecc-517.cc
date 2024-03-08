@@ -25,6 +25,10 @@ int main(int argc, char** argv)
     assert(argc == 2);
     outfilename = argv[1];
 
+    // Test non-existent sample file. Should fail
+    h = codes_bufr_handle_new_from_samples(NULL, "some rubbish");
+    assert(!h);
+
     h = codes_bufr_handle_new_from_samples(NULL, sampleName);
     assert(h);
 
@@ -116,8 +120,17 @@ int main(int argc, char** argv)
     }
 
     fclose(fout);
+
+    // expandedOriginalCodes
+    long orig[100];
+    size = 100;
+    CODES_CHECK(codes_get_long_array(h, "expandedOriginalCodes", orig, &size), 0);
+    printf("Size of expandedOriginalCodes = %zu\n", size);
+
     codes_handle_delete(h);
     free(ivalues);
+
+    codes_context_delete(0);
 
     return 0;
 }
