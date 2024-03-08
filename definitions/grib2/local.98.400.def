@@ -1,0 +1,15 @@
+# Local definition 400: Verification scores
+
+label "_local 98.400";
+
+codetable[2] verMarsClass   "mars/class.table" = "od" : dump,string_type,lowercase;
+codetable[2] verMarsStream "mars/stream.table" = "oper" : dump,string_type,lowercase ;
+codetable[2] verMarsType   "mars/type.table" = "an"  : dump,string_type,no_fail,lowercase;
+ksec1expver[4] verExperimentVersionNumber = "0001" : dump;
+
+codetable[2] refMarsClass   "mars/class.table" = "od" : dump,string_type,lowercase;
+codetable[2] refMarsStream "mars/stream.table" = "oper" : dump,string_type,lowercase ;
+codetable[2] refMarsType   "mars/type.table" = "an"  : dump,string_type,no_fail,lowercase;
+ksec1expver[4] refExperimentVersionNumber = "0001" : dump;
+
+

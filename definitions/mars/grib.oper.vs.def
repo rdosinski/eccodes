@@ -1,0 +1,5 @@
+meta marsVerifiedProduct sprintf("%s_%s_%s_%s",verMarsClass,verMarsStream,verMarsType,verExperimentVersionNumber);
+alias   mars.model = marsVerifiedProduct;
+
+meta marsReferenceProduct sprintf("%s_%s_%s_%s",refMarsClass,refMarsStream,refMarsType,refExperimentVersionNumber);
+alias   mars.origin = marsReferenceProduct;
